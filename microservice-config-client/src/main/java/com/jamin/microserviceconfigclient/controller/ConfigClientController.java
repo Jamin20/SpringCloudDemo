@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class ConfigClientController {
 
-    @Value("${profile}")
+    @Value("${test}")
     private String profile;
 
     @GetMapping("/profile")
