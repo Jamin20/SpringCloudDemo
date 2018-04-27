@@ -3,8 +3,19 @@ server:
 eureka:
   instance:
     hostname: localhost
+    lease-expiration-duration-in-seconds: 90
+    lease-renewal-interval-in-seconds: 30
   client:
     register-with-eureka: false
     fetch-registry: false
     service-url:
       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+security:
+  basic:
+    enabled: true
+  user:
+    name: admin
+    password: admin
+spring:
+  profiles:
+    active: native

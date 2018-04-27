@@ -1,9 +1,16 @@
 server:
   port: 8888
 spring:
+  application:
+    name: microservice-config
   cloud:
     config:
       server:
         git:
           uri: https://github.com/Jamin20/SpringCloudDemo.git
           search-paths: config-repo
+eureka:
+  client:
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://admin:admin@localhost:8761/eureka/
