@@ -13,6 +13,9 @@
         <module>microservice-discovery-eureka</module>
         <module>microservice-config</module>
         <module>microservice-config-client</module>
+        <module>microservice-simple-provider</module>
+        <module>microservice-simple-consumer</module>
+        <module>commons</module>
     </modules>
 
     <!-- spring cloud 配置 -->
@@ -37,6 +40,12 @@
                 <version>${spring-cloud.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>com.jamin</groupId>
+                <artifactId>commons</artifactId>
+                <version>1.0-SNAPSHOT</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

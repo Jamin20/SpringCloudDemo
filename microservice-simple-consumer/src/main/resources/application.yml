@@ -1,0 +1,19 @@
+server:
+  port: 8083
+spring:
+  application:
+    name: microservice-simple-consumer
+eureka:
+  client:
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://admin:admin@localhost:8761/eureka/
+  instance:
+    appname: ${spring.application.name}
+    status-page-url-path: /info
+    health-check-url-path: /health
+test:
+  provider:
+    testBeanService: microservice-simple-provider
+  consumer:
+    getTestBeanServicePath: http://${test.provider.testBeanService}/test/
