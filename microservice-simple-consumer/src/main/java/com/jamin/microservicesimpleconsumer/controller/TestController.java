@@ -1,6 +1,7 @@
 package com.jamin.microservicesimpleconsumer.controller;
 
 import com.jamin.entity.TestBean;
+import com.jamin.microservicesimpleconsumer.service.FeignTestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,9 +22,16 @@ public class TestController {
     private RestTemplate restTemplate;
     @Value("${test.consumer.getTestBeanServicePath}")
     private String getTestBeanPath;
+    @Autowired
+    private FeignTestService feignTestService;
 
     @GetMapping("/test/{id}")
     public TestBean getTestBean(@PathVariable Long id) {
         return restTemplate.getForObject(getTestBeanPath + id, TestBean.class);
+    }
+
+    @GetMapping("/feign/{id}")
+    public TestBean getById(@PathVariable Long id) {
+        return feignTestService.getTestBeanById(id);
     }
 }
